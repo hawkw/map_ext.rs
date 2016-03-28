@@ -2,6 +2,7 @@
            , feature(augmented_assignments, op_assign_traits) )]
 
 //! Extensions to `std::collections::HashMap`
+use std::borrow::Borrow;
 use std::collections::HashMap;
 use std::collections::hash_map::Entry::{Occupied, Vacant};
 use std::hash::Hash;
@@ -18,22 +19,24 @@ where K: Hash + Eq {
 }
 
 pub trait Update<K, V> {
-    fn update<F>(&mut self, key: K, f: F, default: V)
+    fn update<F>(&mut self, key: &K, f: F, default: V)
     where F: FnOnce(&mut V);
 }
 
 impl<K, V> Update<K, V> for HashMap<K, V>
-where K: Hash + Eq {
+where K: Hash + Eq,
+      K: Copy {
 
-    fn update<F>(&mut self, key: K, f: F, default: V)
+    fn update<F>(&mut self, key: &K, f: F, default: V)
     where F: FnOnce(&mut V) {
-        match self.entry(key) {
+        match self.entry(*key) {
             Vacant(entry) => { entry.insert(default); }
           , Occupied(mut entry) => { f(entry.get_mut()); }
         }
     }
 
 }
+
 
 #[cfg(test)]
 mod tests {
