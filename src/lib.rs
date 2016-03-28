@@ -2,7 +2,6 @@
            , feature(augmented_assignments, op_assign_traits) )]
 
 //! Extensions to `std::collections::HashMap`
-use std::borrow::Borrow;
 use std::collections::HashMap;
 use std::collections::hash_map::Entry::{Occupied, Vacant};
 use std::hash::Hash;
