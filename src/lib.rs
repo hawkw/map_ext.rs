@@ -1,13 +1,14 @@
-#![feature(augmented_assignments)]
-#![feature(op_assign_traits)]
+#![cfg( features = "unstable",
+      , feature(augmented_assignments, op_assign_traits) )]
 
 //! Extensions to `std::collections::HashMap`
 use std::collections::HashMap;
 use std::collections::hash_map::Entry::{Occupied, Vacant};
 use std::hash::Hash;
 
+#[cfg(features = "unstable")]
 pub struct HashMapAddable<K: Hash + Eq, V>(HashMap<K,V>);
-
+#[cfg(features = "unstable")]
 impl<K,V> std::ops::AddAssign<(K, V)> for HashMapAddable<K, V>
 where K: Hash + Eq {
     // type Rhs = (K, V);
