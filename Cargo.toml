@@ -9,3 +9,6 @@ repository = "https://github.com/hawkw/hashmap_ext.rs"
 readme = "README.md"
 
 [dependencies]
+
+[features]
+unstable = []
