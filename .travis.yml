@@ -1,0 +1,34 @@
+sudo: false
+language: rust
+rust:
+  - nightly
+  - stable
+  - beta
+
+matrix:
+  allow_failures:
+   - rust: beta
+   - rust: stable
+  fast_finish: true
+
+# install Coveralls dependencies
+addons:
+  apt:
+    packages:
+      - libcurl4-openssl-dev
+      - libelf-dev
+      - libdw-dev
+
+# Fetch travis-cargo
+before_script:
+  - |
+    pip install 'travis-cargo<0.2' --user &&
+    export PATH=$HOME/.local/bin:$PATH
+
+script:
+  # build
+  - travis-cargo build
+  # run the tests
+  - travis-cargo test
+  # run the benchmarks (pending)
+  - travis-cargo bench
