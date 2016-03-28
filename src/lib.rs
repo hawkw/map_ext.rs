@@ -18,16 +18,16 @@ where K: Hash + Eq {
     }
 }
 
-pub trait Update<K, V> {
-    fn update<F>(&mut self, key: &K, f: F, default: V)
+pub trait UpdateOr<K, V> {
+    fn update_or<F>(&mut self, key: &K, f: F, default: V)
     where F: FnOnce(&mut V);
 }
 
-impl<K, V> Update<K, V> for HashMap<K, V>
+impl<K, V> UpdateOr<K, V> for HashMap<K, V>
 where K: Hash + Eq,
       K: Copy {
 
-    fn update<F>(&mut self, key: &K, f: F, default: V)
+    fn update_or<F>(&mut self, key: &K, f: F, default: V)
     where F: FnOnce(&mut V) {
         match self.entry(*key) {
             Vacant(entry) => { entry.insert(default); }
