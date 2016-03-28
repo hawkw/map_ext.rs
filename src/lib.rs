@@ -36,6 +36,25 @@ where K: Hash + Eq,
 
 }
 
+pub trait Update<K, V> {
+    fn update<F>(&mut self, key: &K, f: F)
+    where F: FnOnce(&mut V);
+}
+
+impl<K, V> Update<K, V> for HashMap<K, V>
+where K: Hash + Eq,
+      K: Copy {
+
+    fn update<F>(&mut self, key: &K, f: F)
+    where F: FnOnce(&mut V) {
+        match self.entry(*key) {
+            Vacant(_) => { }
+          , Occupied(mut entry) => { f(entry.get_mut()); }
+        }
+    }
+
+}
+
 
 #[cfg(test)]
 mod tests {
