@@ -1,6 +1,12 @@
 [package]
 name = "hashmap_ext"
 version = "0.1.0"
+version = "0.0.1"
 authors = ["Hawk Weisman <hi@hawkweisman.me>"]
+description = "Extensions to std::collections::HashMap"
+license = "MIT/Apache 2.0"
+homepage = "https://github.com/hawkw/hashmap_ext.rs"
+repository = "https://github.com/hawkw/hashmap_ext.rs"
+readme = "README.md"
 
 [dependencies]
