@@ -1,5 +1,5 @@
-#![cfg( features = "unstable",
-      , feature(augmented_assignments, op_assign_traits) )]
+#![cfg_attr( features = "unstable"
+           , feature(augmented_assignments, op_assign_traits) )]
 
 //! Extensions to `std::collections::HashMap`
 use std::collections::HashMap;
