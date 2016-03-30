@@ -1,6 +1,6 @@
 [package]
 name = "map_ext"
-version = "0.0.3"
+version = "1.0.0"
 authors = ["Hawk Weisman <hi@hawkweisman.me>"]
 description = "Extensions to std::collections::HashMap and std::collections::BTreeMap."
 license = "MIT/Apache-2.0"
