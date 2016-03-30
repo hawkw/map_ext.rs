@@ -1,4 +1,4 @@
-# map_ext.rs [![Build Status](https://travis-ci.org/hawkw/hashmap_ext.rs.svg?branch=master)](https://travis-ci.org/hawkw/hashmap_ext.rs)  [![GitHub license](https://img.shields.io/crates/l/hashmap_ext.svg?)](https://github.com/hawkw/lin/blob/master/LICENSE-MIT) [![Crates.io](https://img.shields.io/crates/v/hashmap_ext.svg)](https://crates.io/crates/hashmap_ext)
+# map_ext.rs [![Build Status](https://travis-ci.org/hawkw/hashmap_ext.rs.svg?branch=master)](https://travis-ci.org/hawkw/hashmap_ext.rs)  [![GitHub license](https://img.shields.io/crates/l/map_ext.svg?)](https://github.com/hawkw/lin/blob/master/LICENSE-MIT) [![Crates.io](https://img.shields.io/crates/v/map_ext.svg)](https://crates.io/crates/hashmap_ext)
 
 Extensions to Rust's `std::collections::HashMap` and `std::collections::BTreeMap`.
 
